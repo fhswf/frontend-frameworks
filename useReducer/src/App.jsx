@@ -1,6 +1,8 @@
 import React, { useReducer } from "react";
 import Counter from "./Counter";
 
+import "./App.css";
+
 const initialState = 0;
 
 const reducer = (state, action) => {
