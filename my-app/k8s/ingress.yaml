@@ -1,0 +1,21 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jupiter.fh-swf.de
+  namespace: jupiter
+  annotations:
+    traefik.frontend.passHostHeader: 'true'
+    traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
+spec:
+  rules:
+  - host: jupiter.fh-swf.de
+    http:
+      paths: 
+      - path: /frontend-frameworks
+        pathType: Prefix
+        backend:
+          service:
+            name: jupiter
+            port:
+              number: 80      
